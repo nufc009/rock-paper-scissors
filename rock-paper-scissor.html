@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+
+    <script>
+
+        let choice = ['rock', 'paper', 'scissor'];
+        let humanScore = 0;
+        let computerScore = 0;
+
+        function getComputerChoice(compChoice) {
+            
+            let randomIndex = Math.floor(Math.random() * choice.length);
+            return choice[randomIndex];
+
+        }
+
+        function getHumanChoice() {
+
+            let humanChoice = prompt("Choose rock, paper or scissor");
+            return (humanChoice);
+        }
+
+        function playRound(getHumanChoice, getComputerChoice) {
+
+            if (getHumanChoice === "rock" && getComputerChoice == "scissor" ||
+                getHumanChoice == "paper" && getComputerChoice == "rock" ||
+                getHumanChoice == "scissor" && getComputerChoice == "paper") {
+                console.log("You win " + getHumanChoice + " beats " + getComputerChoice)
+
+        } else if (getHumanChoice == "rock" && getComputerChoice == "paper" ||
+                   getHumanChoice == "paper" && getComputerChoice == "scissors" ||
+                   getHumanChoice == "scissors" && getComputerChoice == "rock") {
+                console.log("You lose " + getHumanChoice + " loses to " + getComputerChoice)
+
+                } else {
+                    console.log("This round was a draw");
+                }
+            };
+
+            const humanSelection = getHumanChoice();
+            const computerSelection = getComputerChoice();
+    
+        playRound(humanSelection, computerSelection);
+       
+
+        
+
+        
+
+    </script>
+    
+</body>
+</html>
