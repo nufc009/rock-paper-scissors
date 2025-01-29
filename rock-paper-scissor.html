@@ -33,10 +33,18 @@
                 getHumanChoice == "scissor" && getComputerChoice == "paper") {
                 console.log("You win " + getHumanChoice + " beats " + getComputerChoice)
 
+                humanScore++
+
+                return console.log(humanScore);
+
         } else if (getHumanChoice == "rock" && getComputerChoice == "paper" ||
                    getHumanChoice == "paper" && getComputerChoice == "scissors" ||
                    getHumanChoice == "scissors" && getComputerChoice == "rock") {
                 console.log("You lose " + getHumanChoice + " loses to " + getComputerChoice)
+
+                computerScore++
+
+                return console.log(computerScore);
 
                 } else {
                     console.log("This round was a draw");
@@ -48,6 +56,9 @@
     
         playRound(humanSelection, computerSelection);
        
+        function playGame() {
+
+        }
 
         
 
