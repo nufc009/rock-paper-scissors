@@ -29,6 +29,8 @@
        
         function playGame() {
 
+
+
             function playRound(getHumanChoice, getComputerChoice) {
 
                 getHumanChoice = getHumanChoice.toLowerCase();
@@ -37,7 +39,7 @@
 
                     console.log("Invalid choice!, choose either rock, paper or scissor");
                     return;
-                }
+                } 
 
                 if (getHumanChoice == "rock" && getComputerChoice == "scissor" ||
                     getHumanChoice == "paper" && getComputerChoice == "rock" ||
