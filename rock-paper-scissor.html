@@ -9,15 +9,14 @@
 
     <script>
 
-        let choice = ['rock', 'paper', 'scissor'];
+        const choices = ['rock', 'paper', 'scissor'];
         let humanScore = 0;
-        let computerScore = 0;
-        
+        let computerScore = 0;      
 
         function getComputerChoice(compChoice) {
-            
-            let randomIndex = Math.floor(Math.random() * choice.length);
-            return choice[randomIndex];
+
+            return choices[Math.floor(Math.random() * 3)];
+
 
         }
 
@@ -26,59 +25,75 @@
             let humanChoice = prompt("Choose rock, paper or scissor");
             return (humanChoice);
         }
+
+        function playRound(humanChoice, computerChoice) {
+
+            humanChoice = humanChoice.toLowerCase();
+            const choices = ['rock', 'paper', 'scissor'];
+
+                if (!choices.includes(humanChoice)) {
+
+                console.log("Invalid choice!, choose either rock, paper or scissor");
+                return;
+            }
+            
+                if (humanChoice === computerChoice) {
+                    console.log("You both chose " + humanChoice + ". This round was a draw");
+                
+                } else if (humanChoice == "rock" && computerChoice == "scissor" ||
+                           humanChoice == "paper" && computerChoice == "rock" ||
+                           humanChoice == "scissor" && computerChoice == "paper") {
+    
+                    console.log("You win " + humanChoice + " beats " + computerChoice)
+
+                    humanScore++
+
+            } else {
+                
+                console.log("You lose " + humanChoice + " loses to " + computerChoice)
+
+                computerScore++
+
+            }
+
+                console.log("Scores: You - " + humanScore + " | Computer - " + computerScore);
+            
+            }
        
         function playGame() {
+                   
+            for (let rounds = 1; rounds <=5; rounds++) {
+                console.log(`Round ${rounds}`);
+        
+                const humanSelection = getHumanChoice();
+                const computerSelection = getComputerChoice();
+                
+                playRound(humanSelection, computerSelection);
+            }
 
-
-
-            function playRound(getHumanChoice, getComputerChoice) {
-
-                getHumanChoice = getHumanChoice.toLowerCase();
-
-                if (!choice.includes(getHumanChoice)) {
-
-                    console.log("Invalid choice!, choose either rock, paper or scissor");
-                    return;
-                } 
-
-                if (getHumanChoice == "rock" && getComputerChoice == "scissor" ||
-                    getHumanChoice == "paper" && getComputerChoice == "rock" ||
-                    getHumanChoice == "scissor" && getComputerChoice == "paper") {
+            if (humanScore > computerScore) {
+                
+                console.log("YOU WIN! You defeated the Computer!");
+                
+            } else if (humanScore < computerScore) {
                     
-                        console.log("You win " + getHumanChoice + " beats " + getComputerChoice)
-
-                        humanScore++
-
-                        return console.log(humanScore);
-
-                } else if (getHumanChoice == "rock" && getComputerChoice == "paper" ||
-                           getHumanChoice == "paper" && getComputerChoice == "scissors" ||
-                           getHumanChoice == "scissors" && getComputerChoice == "rock") {
+                console.log("GAME OVER!, you were defeated by the Computer!");
     
-                            console.log("You lose " + getHumanChoice + " loses to " + getComputerChoice)
+            } else {
 
-                            computerScore++
+                console.log("The game is a draw!");
+            }
 
-                            return console.log(computerScore);
-
-                } else {
-
-                    console.log("You both chose " + getHumanChoice + ". This round was a draw");
-                }
+                                
         };
-
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-
-        playRound(humanSelection, computerSelection);
-
-        }
+        
+             
 
         playGame();
-        playGame();
-        playGame();
-        playGame();
-        playGame();
+       
+        
+        
+        
         
 
         
